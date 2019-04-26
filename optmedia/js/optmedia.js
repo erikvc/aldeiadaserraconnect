@@ -116,7 +116,7 @@ function pegaEmpresas(){
 	var subcategoriaID = localStorage.getItem('subcategoriaID');
 	var usuarioEmail = localStorage.getItem('login');
 	$.ajax({
-		url: "aldeiaAppWebservice/pegaEmpresas.php",
+		url: "http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaEmpresas.php",
 		type: "get",
 		crossDomain: true,
 		dataType: "json",
