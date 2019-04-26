@@ -504,7 +504,7 @@ function pegaAgenda(){
 		success: function(dados){
 			$("#recebeAgenda").empty();
 			for(var i=0;dados.length>i; i++){
-			   $("#recebeAgenda").append('<div class="ofertas-item"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/agenda/'+dados[i].imagem+'" alt=""/></div>');
+                $("#recebeAgenda").append('<div class="ofertas-item"><div><p>'+dados[i].texto+'</p></div><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/ofertas/'+dados[i].imagem+'" alt=""/></div>');
 			}
 		},
 		error: function(dados){
