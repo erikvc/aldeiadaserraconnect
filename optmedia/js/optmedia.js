@@ -466,7 +466,7 @@ function pegaCupons(){
 		success: function(dados){
 			$("#recebeCupons").empty();
 			for(var i=0;dados.length>i; i++){
-			   $("#recebeCupons").append('<img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/cupons/'+dados[i].imagem+'" alt=""/></div>');
+			   $("#recebeCupons").append('<div class="ofertas-item"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/cupons/'+dados[i].imagem+'" alt=""/></div>');
 			}
 		},
 		error: function(dados){
@@ -485,7 +485,7 @@ function pegaCardapio(){
 		success: function(dados){
 			$("#recebeCardapio").empty();
 			for(var i=0;dados.length>i; i++){
-			   $("#recebeCardapio").append('<img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/cardapio/'+dados[i].imagem+'" alt=""/></div>');
+			   $("#recebeCardapio").append('<div class="ofertas-item"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/cardapio/'+dados[i].imagem+'" alt=""/></div>');
 			}
 		},
 		error: function(dados){
@@ -504,7 +504,7 @@ function pegaAgenda(){
 		success: function(dados){
 			$("#recebeAgenda").empty();
 			for(var i=0;dados.length>i; i++){
-			   $("#recebeAgenda").append('<img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/agenda/'+dados[i].imagem+'" alt=""/></div>');
+			   $("#recebeAgenda").append('<div class="ofertas-item"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/agenda/'+dados[i].imagem+'" alt=""/></div>');
 			}
 		},
 		error: function(dados){
