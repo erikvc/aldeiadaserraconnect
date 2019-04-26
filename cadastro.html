@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aldeia Connect</title>
+
+<link href="optmedia/css/optmedia.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link href="optmedia/css/reset.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<script type="text/javascript" src="optmedia/js/jquery-3.3.1.min.js"></script>
+
+    <script src="cordova.js"></script>
+
+</head>
+
+<body class="fontType">
+	<div class="backBTOcadastro" id="top-back"><i class="fas fa-chevron-left"></i></div>
+    <div class="cadastrar-container">
+        <div class="cadastrar-box">
+            <form class="cadastrar" id="formCadastrar">
+                <div>
+                    <label>Nome</label>
+                    <input required id="nome" type="text" name="nome">
+                </div>
+                <div>
+                    <label>Sobrenome</label>
+                    <input required id="sobrenome" type="text" name="sobrenome">
+                </div>
+                <div>
+                    <label>Email</label>
+                    <input required id="email" type="email" name="email">
+                </div>
+                <div>
+                    <label>Senha</label>
+                    <input required id="password" type="password" name="password">
+                </div>
+                <div>
+                    <label>Repetir Senha</label>
+                    <input required id="vpassword" type="password" name="vpassword">
+                </div>
+                <button>Cadastrar</button>
+            </form>
+            <div class="errorMsg" id="errorMsg">Preencha todos os campos!</div>
+            <div style="margin-top: 20px;"><a href="http://www.aldeiadaserraconnect.com.br/politicadeprivacidade.html">politica de privacidade</a></div>
+        </div>
+    </div>    
+
+	
+<script type="text/javascript" src="optmedia/js/optmedia.js"></script>	
+</body>
+</html>

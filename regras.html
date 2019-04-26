@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aldeia Connect</title>
+
+<link href="optmedia/css/optmedia.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link href="optmedia/css/reset.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<script type="text/javascript" src="optmedia/js/jquery-3.3.1.min.js"></script>
+	
+
+
+</head>
+
+<body class="fontType">
+
+<header>
+	<div class="header-level1">
+		<div class="top-back" id="top-back"><i class="fas fa-chevron-left"></i></div>
+   	  <div class="logo"><img src="optmedia/images/logo.png" width="136" height="38" alt=""/></div> 
+   	  <div class="top-menu-bars"><a class="menu-bto" href="#"><i class="fas fa-bars"></i></a></div>
+    </div>
+	<div class="header-level2">
+	  <ul>
+			<li><a href="index.html"><i class="fas fa-home"></i></a></li>
+			<li><a href="favoritos.html"><i class="fas fa-heart"></i></a></li>
+		    <li><i class="fas fa-search"></i></li>
+		</ul>
+		<div class="search"><input type="text" placeholder="pesquisar..." id="search" name="search"></div>
+		
+  	</div>
+	<div class="header-level3">
+	  <table width="100%" height="100%">
+			<tr>
+				<td width="25%" align="center" valign="middle"><div class="format_ic_table"><a href="ofertas.html"><i class="fas fa-tag"></i></a></div></td>
+				<td width="25%" align="center" valign="middle"><div class="format_ic_table"><a href="cupons.html"><i class="fas fa-money-check-alt"></i></a></div></td>
+				<td width="25%" align="center" valign="middle"><div class="format_ic_table"><a href="agenda.html"><i class="far fa-calendar-alt"></i></a></div></td>
+				<td width="25%" align="center" valign="middle"><div class="format_ic_table"><a href="noticias.html"><i class="far fa-newspaper"></i></a></div></td>
+			</tr>
+		</table>
+  </div>
+</header>
+<div class="conteudo-search" id="conteudo-search">
+	<div class="fecha-search" id="fecha-search"><a href="#"><i class="fas fa-times-circle"></i></a></div>
+	<ul id="recebeSearch">
+		<!--<li>
+			<a href="#">Premium Academia</a>
+			<div style="font-size: 12px;">categoria: Acedemias</div>
+		</li>
+		<li>
+			<a href="#">Premium Academia</a>
+			<div style="font-size: 12px;">categoria: Acedemias</div>
+		</li>-->
+	</ul>
+</div>	
+
+
+<div class="menu-lateral">
+	<div class="menu-header"><a href="#" class="menu-bto"><i class="fas fa-arrow-left"></i></a></div>
+	<div class="menu-header-title">NAVEGAÇÃO</div>
+	<div class="menuNavegacao">
+		<a href="login.html">
+			<div class="menuItem">
+				<div class="menuIcon"><i class="fas fa-lock"></i></div>
+				<div class="menuTitle">Login</div>
+				<div class="menuCircle menuCircleActive"><i class="fas fa-circle"></i></div>
+			</div>
+		</a>
+		<a href="regras.html">
+			<div class="menuItem">
+				<div class="menuIcon"><i class="fas fa-ruler-vertical"></i></div>
+				<div class="menuTitle">Regras</div>
+				<div class="menuCircle menuCircleNotActive"><i class="fas fa-circle"></i></div>
+			</div>
+		</a>
+		<a href="cardapio.html">
+			<div class="menuItem">
+				<div class="menuIcon"><i class="fas fa-utensils"></i></div>
+				<div class="menuTitle">Cardápios</div>
+				<div class="menuCircle menuCircleNotActive"><i class="fas fa-circle"></i></div>
+			</div>
+		</a>
+		<a href="mailto:contato@aldeiadaserraconnect.com.br">
+			<div class="menuItem">
+				<div class="menuIcon"><i class="fas fa-file-contract"></i></div>
+				<div class="menuTitle">Fale Conosco</div>
+				<div class="menuCircle menuCircleNotActive"><i class="fas fa-circle"></i></div>
+			</div>
+		</a>
+		<a href="#" onClick="window.open('https://www.facebook.com/Aldeiadaserraconnect-421727532011355/','_system','location=yes');return false;">
+			<div class="menuItem">
+				<div class="menuIcon"><i class="fab fa-facebook-f"></i></div>
+				<div class="menuTitle">Facebook</div>
+				<div class="menuCircle menuCircleNotActive"><i class="fas fa-circle"></i></div>
+			</div>
+		</a>
+		<a href="#" onClick="window.open('https://www.instagram.com/aldeiadaserraconnect/','_system','location=yes');return false;">
+			<div class="menuItem">
+				<div class="menuIcon"><i class="fab fa-instagram"></i></div>
+				<div class="menuTitle">Instagram</div>
+				<div class="menuCircle menuCircleNotActive"><i class="fas fa-circle"></i></div>
+			</div>
+		</a>
+		<a href="#" onClick="return logout();">
+			<div class="menuItem">
+				<div class="menuIcon"><i class="fas fa-sign-out-alt"></i></div>
+				<div class="menuTitle">Sair</div>
+				<div class="menuCircle menuCircleNotActive"><i class="fas fa-circle"></i></div>
+			</div>
+		</a>
+	</div>
+</div>
+
+<div class="content">
+	
+	
+
+<div class="conteudo">
+	<div>
+		<div style="padding: 14px;">
+            <p>
+                <h2 style="font-size: 16px; font-weight: bold; margin-bottom: 14px;">Termos e Condições</h2>
+
+Ao fazer o download ou usar o aplicativo, esses termos serão aplicados automaticamente a você. Por isso, certifique-se de lê-los com atenção antes de usar o aplicativo. Você não tem permissão para copiar ou modificar o aplicativo, qualquer parte do aplicativo ou nossas marcas registradas de forma alguma. Você não tem permissão para tentar extrair o código-fonte do aplicativo e também não deve tentar traduzir o aplicativo para outros idiomas ou criar versões derivadas. O próprio aplicativo, e todas as marcas registradas, direitos autorais, direitos de banco de dados e outros direitos de propriedade intelectual relacionados a ele, ainda pertencem à Aldeia da Serra Connect.<br><br>
+
+A Aldeia da Serra Connect está empenhada em garantir que o aplicativo seja o mais útil e eficiente possível. Por esse motivo, reservamo-nos o direito de fazer alterações no aplicativo ou cobrar por seus serviços, a qualquer momento e por qualquer motivo. Nunca cobraremos pelo aplicativo nem pelos serviços sem deixar claro para você exatamente o que você está pagando.<br><br>
+
+O aplicativo [Aldeia da Serra Connect] armazena e processa dados pessoais que você nos forneceu, a fim de fornecer o nosso serviço. É sua responsabilidade manter seu telefone e acesso ao aplicativo seguro. Portanto, recomendamos que você não faça o jailbreak ou o root no seu telefone, que é o processo de remoção de restrições e limitações de software impostas pelo sistema operacional oficial do seu dispositivo. Poderia tornar seu smartphone vulnerável a malware / vírus / programas mal-intencionados, comprometer os recursos de segurança do seu telefone e poderia significar que o aplicativo [Aldeia da Serra Connect] não funcionará corretamente ou não funcionará adequadamente.<br><br>
+
+Você deve estar ciente de que há certas coisas que a Aldeia da Serra Connect não se responsabilizará. Certas funções do aplicativo exigirão que o aplicativo tenha uma conexão ativa com a Internet. A conexão pode ser Wi-Fi, ou fornecida pelo seu provedor de rede móvel, mas a Aldeia da Serra Connect não pode se responsabilizar pelo aplicativo não funcionar com funcionalidade total se você não tiver acesso ao Wi-Fi, e você não tiver qualquer um dos seus subsídios de dados restantes.<br><br>
+
+Se você estiver usando o aplicativo fora de uma área com Wi-Fi, lembre-se de que seus termos do contrato com seu provedor de rede móvel ainda serão aplicáveis. Como resultado, você pode ser cobrado pela operadora de celular pelo custo dos dados pela duração da conexão enquanto acessa o aplicativo ou por outras cobranças de terceiros. Ao usar o aplicativo, você está sendo responsabilizado por essas cobranças, incluindo cobranças por dados em roaming, se você usar o aplicativo fora do seu território de origem (ou seja, região ou país) sem desativar o roaming de dados. Se você não é o pagador de contas do dispositivo no qual você está usando o aplicativo, saiba que supomos que você recebeu permissão do pagador de contas para usar o aplicativo.<br><br>
+
+Na mesma linha, a Aldeia da Serra Connect nem sempre pode assumir a responsabilidade pela forma como utiliza a aplicação, ou seja, tem de se certificar de que o seu dispositivo continua a ser cobrado - se ficar sem bateria e não o puder ligar para aproveitar o Serviço.  A Aldeia da Serra Connect não se responsabiliza.<br><br>
+
+Com relação à responsabilidade da Aldeia da Serra Connect pelo uso do aplicativo, quando você estiver usando o aplicativo, é importante ter em mente que, embora nos esforcemos para garantir que ele esteja atualizado e correto em todos os momentos, contamos com terceiros. partes fornecer informações para nós, para que possamos disponibilizá-lo para você. A Aldeia da Serra Connect não se responsabiliza por qualquer perda, direta ou indireta, que você tenha como resultado de confiar totalmente nesta funcionalidade do aplicativo.<br><br>
+
+Em algum momento, podemos querer atualizar o aplicativo. No momento, o aplicativo está disponível no Android e no iOS - os requisitos para ambos os sistemas (e para qualquer sistema adicional que decidirmos estender a disponibilidade do aplicativo) podem ser alterados, e você precisará fazer o download das atualizações se quiser continuar usando a aplicação. A Aldeia da Serra Connect não promete que atualizará sempre a aplicação para que seja relevante para si e / ou trabalhe com a versão Android & iOS que instalou no seu dispositivo. No entanto, você promete sempre aceitar as atualizações do aplicativo quando oferecido a você. Também poderemos deixar de fornecer o aplicativo e encerrá-lo a qualquer momento, sem avisar sobre sua rescisão. A menos que lhe seja dito o contrário, em qualquer rescisão, (a) os direitos e licenças concedidos a você nestes termos terminarão; (b) você deve parar de usar o aplicativo e (se necessário) excluí-lo do seu dispositivo.<br><br>
+
+Alterações a estes Termos e Condições<br><br>
+
+Podemos atualizar nossos Termos e Condições de tempos em tempos. Assim, aconselhamos que você revise esta página periodicamente para quaisquer alterações. Vamos notificá-lo de quaisquer alterações, publicando os novos Termos e Condições nesta página. Essas alterações são efetivadas imediatamente após serem publicadas nesta página.<br><br>
+
+Contate-Nos<br><br>
+
+Se você tiver dúvidas ou sugestões sobre nossos Termos e Condições, não hesite em nos contatar.
+            </p>
+        </div>
+	</div>
+</div>
+
+</div>
+
+
+
+<script type="text/javascript" src="optmedia/js/optmedia.js"></script>
+<script src="slide/js/jquery.slides.min.js"></script>	
+	
+ 
+</body>
+</html>
