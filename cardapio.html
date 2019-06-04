@@ -139,7 +139,11 @@
 <script type="text/javascript" src="optmedia/js/optmedia.js"></script>
  <script src="slide/js/jquery.slides.min.js"></script>
 	
-	<script>pegaCardapio(); verificaConectado();</script>
+	<script>
+		var cardapio_id = localStorage.getItem('cardapio_id');
+		pegaCardapio(cardapio_id); 
+		verificaConectado();
+	</script>
 	
 
 </body>

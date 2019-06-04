@@ -579,7 +579,6 @@ a{
 	margin-top: 222px;
 	text-align: center;
 	padding: 14px;
-	
 }
 .ofertas-item{
 	margin-bottom: 50px;
@@ -736,4 +735,13 @@ a{
 }
 .backBTOcadastro{
     padding: 20px;
+}
+
+.opto-cardapio-box{
+	text-align: center;
+	margin-bottom: 40px;
+	display: block;
+}
+.opto-cardapio-logo{
+	margin-bottom: 10px;
 }

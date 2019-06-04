@@ -1,0 +1,50 @@
+/************LOGIN PAGE*************/
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+
+        .login-box{
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 200px;
+            padding: 14px;
+            background-color: #F8F8F8;
+        }
+        input{
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 5px;
+            border: 0;
+            padding: 14px;
+        }
+
+
+
+.social-part .fa{
+    padding-right:20px;
+}
+ul li a{
+    margin-right: 20px;
+}
+
+.margin{
+    margin-bottom: 14px;
+    margin-top: 14px;
+}
+
+/*************************INDEX*****************/
+button{
+   cursor: pointer;
+}
+
+.font{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+}
+
+.optmedia-conteudo{
+    padding: 20px;
+}

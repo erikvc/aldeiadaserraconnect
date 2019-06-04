@@ -121,12 +121,12 @@
 <div class="conteudo">
 	<form>
 		<div class="container-avaliacao">
-			<div class="avaliacao-title">Deixe aqui a sua avaliação sobre a <span class="avaliacaoEmpresaNome">conteúdo não carregado</span>: </div>
+			<div class="avaliacao-title">Deixe aqui a sua avaliação sobre a <span id="nomeEmpresa1">conteúdo não carregado</span>: </div>
 			<div class="avaliacao-textarea">
 				<textarea id="avaliacaoComentario" placeholder="Digite sua avaliação!"></textarea>
 			</div>
 			<div class="avaliacao-star">
-				<span>Clique nas estrelas abaixo a pontuação da <span class="avaliacaoEmpresaNome">Premium Academia</span>: </span>
+				<span>Clique nas estrelas abaixo e pontue a <span id="nomeEmpresa2">Premium Academia</span>: </span>
 				<div>&nbsp;</div>
 				<ul>
 					<li id="avaliacaoEstrela1" class="active"><a href="#" onClick="return setFavorito(1);"><i class="fas fa-star"></i></a></li>
@@ -152,7 +152,7 @@
  <script src="slide/js/jquery.slides.min.js"></script>
 	
 	
-	<script>pegaAvaliacao(); verificaConectado();</script>
+	<script>pegaAvaliacao(); verificaConectado(); </script>
 	
 	
 </body>

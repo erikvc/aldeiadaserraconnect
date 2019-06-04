@@ -1,3 +1,24 @@
+//ONESIGNAL********************************
+document.addEventListener('deviceready', function () {
+  // Enable to debug issues.
+  // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+  
+  var notificationOpenedCallback = function(jsonData) {
+    console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+  };
+
+  window.plugins.OneSignal
+    .startInit("c8d6e4a1-1d8b-488b-8246-8601445ced61")
+    .handleNotificationOpened(notificationOpenedCallback)
+    .endInit();
+}, false);
+
+
+function verificaVazio(divID){
+	$("#"+divID).html('<p style="font-size: 12px; text-align: center;">No momento não há empresas cadastradas para esta categoria. Aguarde!</p>');
+}
+
+
 //ABRE E FECHA MENUUUUUU**********
 $(".menu-bto").click(function(){
 	$(".menu-lateral").toggle("fast");
@@ -68,9 +89,14 @@ function pegaCategorias(){
 		crossDomain: true,
 		dataType: "json",
 		success: function(dados){
-			$("#recebeCategorias").empty();
-			for(var i=0;dados.length>i; i++){
-				$("#recebeCategorias").append('<a href="#" onClick="return goToSubcategoria('+dados[i].id+');"><div class="boxBTO"><div class="capsulaTitle"><div class="titleBTO">'+dados[i].title+'</div></div><div class="bgBTO"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/categorias/'+dados[i].image+'" alt=""/></div></div></a>');
+			
+			if(dados.length == 0){
+			   verificaVazio('recebeCategorias');
+			}else{
+				$("#recebeCategorias").empty();
+				for(var i=0;dados.length>i; i++){
+					$("#recebeCategorias").append('<a href="#" onClick="return goToSubcategoria('+dados[i].id+');"><div class="boxBTO"><div class="capsulaTitle"><div class="titleBTO">'+dados[i].title+'</div></div><div class="bgBTO"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/categorias/'+dados[i].image+'" alt=""/></div></div></a>');
+				}
 			}
 		},
 		error: function(dados){
@@ -99,9 +125,14 @@ function pegaSubCategorias(){
 		dataType: "json",
 		data: 'id='+categoriaID,
 		success: function(dados){
-			$("#recebeSubCategorias").empty();
-			for(var i=0;dados.length>i; i++){
-				$("#recebeSubCategorias").append('<a href="#" onClick="return goToEmpresas('+dados[i].id+');"><div class="boxBTO"><div class="capsulaTitle"><div class="titleBTO">'+dados[i].title+'</div></div><div class="bgBTO"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/subcategorias/'+dados[i].image+'" alt=""/></div></div></a>');
+			
+			if(dados.length == 0){
+			   verificaVazio('recebeSubCategorias');
+			}else{
+				$("#recebeSubCategorias").empty();
+				for(var i=0;dados.length>i; i++){
+					$("#recebeSubCategorias").append('<a href="#" onClick="return goToEmpresas('+dados[i].id+');"><div class="boxBTO"><div class="capsulaTitle"><div class="titleBTO">'+dados[i].title+'</div></div><div class="bgBTO"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/subcategorias/'+dados[i].image+'" alt=""/></div></div></a>');
+				}
 			}
 		},
 		error: function(dados){
@@ -122,36 +153,41 @@ function pegaEmpresas(){
 		dataType: "json",
 		data: 'id='+subcategoriaID+'&usuarioEmail='+usuarioEmail,
 		success: function(dados){
-			$("#recebeEmpresas").empty();
-			for(var i=0;dados.length>i; i++){
-				if(dados[i].favoritos == 0){
-				   var active = '';
-				}else{
-					var active = 'active';
+			
+			if(dados.length == 0){
+			   verificaVazio('recebeEmpresas');
+			}else{
+				$("#recebeEmpresas").empty();
+				for(var i=0;dados.length>i; i++){
+					if(dados[i].favoritos == 0){
+					   var active = '';
+					}else{
+						var active = 'active';
+					}
+
+					if(dados[i].notaMedia >= '0' && dados[i].notaMedia < '1'){
+						 var estrelas = '<li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';	
+					}else if(dados[i].notaMedia >= '1' && dados[i].notaMedia < '2'){
+						 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';	 
+					}else if(dados[i].notaMedia >= '2' && dados[i].notaMedia < '3'){
+						 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';		 
+					}else if(dados[i].notaMedia >= '3' && dados[i].notaMedia < '4'){
+						 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';		 
+					}else if(dados[i].notaMedia >= '4' && dados[i].notaMedia < '5'){
+						 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';		 
+					}else if(dados[i].notaMedia >= '5'){
+						 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li>';		 
+					}
+
+					if(dados[i].totalAvaliacao == '1'){
+					   var plural = 'avaliação';
+					}else{
+					   var plural = 'avaliações';	
+					}
+
+
+					$("#recebeEmpresas").append('<div class="boxEmpresas">&nbsp;<div class="empresasHeart '+active+'"><a href="#" onClick="return favorito('+dados[i].id+');"><i class="fas fa-heart"></i></a></div><div class="empresasLogo"><a href="#" onClick="return goToEmpresa('+dados[i].statusPagamento+', '+dados[i].id+');"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/empresas/'+dados[i].logo+'" width="84" height="84" alt=""/></a></div><div class="empresasTitle">'+dados[i].nome+'</div><div><div class="empresasBottom"><div><a href="#" onClick="return goToEmpresa('+dados[i].statusPagamento+', '+dados[i].id+');"><div class="empresasLeft"><div class="empresasLeftContent">CONTATO</div></div></a><div class="empresasRight"><div class="empresasRightStar"><ul>'+estrelas+'</ul></div><div class="empresasRightContent">'+dados[i].totalAvaliacao+' '+plural+'</div></div></div</div<div>&nbsp;</div></div></div>');
 				}
-				
-				if(dados[i].notaMedia == '0'){
-					 var estrelas = '<li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';	
-				}else if(dados[i].notaMedia <= '1'){
-				  	 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';	 
-				}else if(dados[i].notaMedia <= '2' && dados[i].notaMedia > '1'){
-					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';		 
-				}else if(dados[i].notaMedia <= '3' && dados[i].notaMedia > '2'){
-					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';		 
-				}else if(dados[i].notaMedia <= '4' && dados[i].notaMedia > '3'){
-					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';		 
-				}else if(dados[i].notaMedia <= '5' && dados[i].notaMedia > '4'){
-					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li>';		 
-				}
-				
-				if(dados[i].totalAvaliacao == '1'){
-				   var plural = 'avaliação';
-				}else{
-				   var plural = 'avaliações';	
-				}
-				
-				
-				$("#recebeEmpresas").append('<div class="boxEmpresas">&nbsp;<div class="empresasHeart '+active+'"><a href="#" onClick="return favorito('+dados[i].id+');"><i class="fas fa-heart"></i></a></div><div class="empresasLogo"><a href="#" onClick="return goToEmpresa('+dados[i].statusPagamento+', '+dados[i].id+');"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/empresas/'+dados[i].logo+'" width="84" height="84" alt=""/></a></div><div class="empresasTitle">'+dados[i].nome+'</div><div><div class="empresasBottom"><div><a href="#" onClick="return goToEmpresa('+dados[i].statusPagamento+', '+dados[i].id+');"><div class="empresasLeft"><div class="empresasLeftContent">CONTATO</div></div></a><div class="empresasRight"><div class="empresasRightStar"><ul>'+estrelas+'</ul></div><div class="empresasRightContent">'+dados[i].totalAvaliacao+' '+plural+'</div></div></div</div<div>&nbsp;</div></div></div>');
 			}
 		},
 		error: function(dados){
@@ -179,17 +215,17 @@ function pegaFavoritos(){
 					var active = 'active';
 				}
 				
-				if(dados[i].notaMedia == '0'){
+				if(dados[i].notaMedia >= '0' && dados[i].notaMedia < '1'){
 					 var estrelas = '<li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';	
-				}else if(dados[i].notaMedia <= '1'){
+				}else if(dados[i].notaMedia >= '1' && dados[i].notaMedia < '2'){
 				  	 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';	 
-				}else if(dados[i].notaMedia <= '2' && dados[i].notaMedia > '1'){
+				}else if(dados[i].notaMedia >= '2' && dados[i].notaMedia < '3'){
 					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';		 
-				}else if(dados[i].notaMedia <= '3' && dados[i].notaMedia > '2'){
+				}else if(dados[i].notaMedia >= '3' && dados[i].notaMedia < '4'){
 					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';		 
-				}else if(dados[i].notaMedia <= '4' && dados[i].notaMedia > '3'){
+				}else if(dados[i].notaMedia >= '4' && dados[i].notaMedia < '5'){
 					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';		 
-				}else if(dados[i].notaMedia <= '5' && dados[i].notaMedia > '4'){
+				}else if(dados[i].notaMedia >= '5'){
 					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li>';		 
 				}
 				
@@ -237,18 +273,18 @@ function pegaEmpresa(){
 			
 			$("#empresaAvaliacao").html('<a href="#" onClick="return abreAvaliacao('+dados[0].id+');"><div class="empresaTableCell1"><span style="font-size: 14px; font-weight: bold;">DEIXE SUA AVALIAÇÃO</span></div></a>');
 			
-			if(dados[0].notaMedia == '0'){
-					 var estrelas = '<li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><span style="color: #000000;">&nbsp;('+dados[0].notaMedia+')</span></li>';	
-				}else if(dados[0].notaMedia <= '1'){
-				  	 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><span style="color: #000000;">&nbsp;('+dados[0].notaMedia+')</span></li>';	 
-				}else if(dados[0].notaMedia <= '2' && dados[0].notaMedia > '1'){
-					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><span style="color: #000000;">&nbsp;('+dados[0].notaMedia+')</span></li>';		 
-				}else if(dados[0].notaMedia <= '3' && dados[0].notaMedia > '2'){
-					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><span style="color: #000000;">&nbsp;('+dados[0].notaMedia+')</span></li>';		 
-				}else if(dados[0].notaMedia <= '4' && dados[0].notaMedia > '3'){
-					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><span style="color: #000000;">&nbsp;('+dados[0].notaMedia+')</span></li>';		 
-				}else if(dados[0].notaMedia <= '5' && dados[0].notaMedia > '4'){
-					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><span style="color: #000000;">&nbsp;('+dados[0].notaMedia+')</span></li>';		 
+			if((dados[0].notaMedia >= '0' && dados[0].notaMedia < '1')){
+					 var estrelas = '<li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><span style="color: #000000;">&nbsp;(0)</span></li>';	
+				}else if(dados[0].notaMedia >= '1' && dados[0].notaMedia < '2'){
+				  	 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><span style="color: #000000;">&nbsp;(1)</span></li>';	 
+				}else if(dados[0].notaMedia >= '2' && dados[0].notaMedia < '3'){
+					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><span style="color: #000000;">&nbsp;(2)</span></li>';		 
+				}else if(dados[0].notaMedia >= '3' && dados[0].notaMedia < '4'){
+					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><span style="color: #000000;">&nbsp;(3)</span></li>';		 
+				}else if(dados[0].notaMedia >= '4' && dados[0].notaMedia < '5'){
+					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><span style="color: #000000;">&nbsp;(4)</span></li>';		 
+				}else if(dados[0].notaMedia >= '5'){
+					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><span style="color: #000000;">&nbsp;(5)</span></li>';		 
 				}
 			
 				if(dados[0].totalAvaliacao == '1'){
@@ -256,7 +292,7 @@ function pegaEmpresa(){
 				}else{
 				   var plural = 'avaliações';	
 				}
-			
+            
 			$("#recebeEstrelas").html(estrelas);
 			$("#recebeTotalAvaliacao").html(dados[0].totalAvaliacao+'&nbsp;'+plural);
 			
@@ -319,8 +355,9 @@ function pegaAvaliacao(){
 		type: "get",
 		crossDomain: true,
 		data: 'empresa_id='+avaliacaoID,
+        dataType: 'json',
 		success: function(dados){
-			$(".avaliacaoEmpresaNome").html(dados[0].nome);
+			$("#nomeEmpresa1, #nomeEmpresa2").html(dados[0].nome);
 		},
 		error: function(dados){
 			alert('error');
@@ -331,7 +368,7 @@ function pegaAvaliacao(){
 }
 
 
-/*=====================SETA FAVORITO===============*/
+/*=====================SETA FAVORITO - AVALIAÇÂO===============*/
 function setFavorito(number){
 	
 	$("#avaliacaoNota").val(number);
@@ -416,16 +453,18 @@ function pegaComentarios(empresa_id){
 			
 			for(var i=0;comentarios.length>i; i++){
 				
-				if(comentarios[i].nota == '1'){
-				   var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';
-				}else if(comentarios[i].nota == '2'){
+				if(comentarios[i].nota >= '0' && comentarios[i].nota < '1'){
+					 var estrelas = '<li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';	
+				}else if(comentarios[i].nota >= '1' && comentarios[i].nota < '2'){
+				  	 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';	 
+				}else if(comentarios[i].nota >= '2' && comentarios[i].nota < '3'){
 					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';		 
-				}else if(comentarios[i].nota == '3'){
-					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';		 
-				}else if(comentarios[i].nota == '4'){
+				}else if(comentarios[i].nota >= '3' && comentarios[i].nota < '4'){
+					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';		 
+				}else if(comentarios[i].nota >= '4' && comentarios[i].nota < '5'){
 					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';		 
-				}else if(comentarios[i].nota == '5'){
-					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li><li><i class="fas fa-star"></i></li>';		 
+				}else if(comentarios[i].nota >= '5'){
+					 var estrelas = '<li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li><li class="active"><i class="fas fa-star"></i></li>';		 
 				}
 				
 				$("#recebeComentarios").append('<div class="empresaAvaliacaoBox"><div class="empresaAvaliacaoMsg"><p>'+comentarios[i].comentario+'</p></div><div class="empresaAvaliacaoName">'+comentarios[i].usuarioNome+'&nbsp;'+comentarios[i].usuarioSobrenome+'</div><div class="empresaAvaliacaoStars"><ul>'+estrelas+'</ul></div></div>');
@@ -476,12 +515,13 @@ function pegaCupons(){
 }
 
 /*===========================PEGA CARDAPIO========================*/
-function pegaCardapio(){
+function pegaCardapio(id){
 	$.ajax({
 		url: "http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaCardapio.php",
 		type: "get",
 		crossDomain: true,
 		dataType: 'json',
+		data: 'id='+id,
 		success: function(dados){
 			$("#recebeCardapio").empty();
 			for(var i=0;dados.length>i; i++){
@@ -493,6 +533,33 @@ function pegaCardapio(){
 		}
 	})
 }
+
+
+/*===========================PEGA CARDAPIO EMPRESAS========================*/
+function pegaCardapioEmpresas(){
+	$.ajax({
+		url: "http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaCardapioEmpresas.php",
+		type: "get",
+		crossDomain: true,
+		dataType: 'json',
+		success: function(dados){
+			$("#recebeEmpresasCardapio").empty();
+			for(var i=0;dados.length>i; i++){
+			   $("#recebeEmpresasCardapio").append('<a href="#" onClick="return abrirCardapio('+dados[i].id+');"><div class="opto-cardapio-box"><div class="opto-cardapio-logo"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/cardapio/'+dados[i].logo+'" width="84" height="84" alt=""/></div><div class="opto-cardapio-nomeEmpresa">'+dados[i].nome+'</div></div></a>');
+			}
+		},
+		error: function(dados){
+			alert('error');
+		}
+	})
+}
+
+
+function abrirCardapio(id){
+	localStorage.setItem('cardapio_id', id);
+	window.location.href="cardapio.html";
+}
+
 
 /*===========================PEGA Agenda========================*/
 function pegaAgenda(){
