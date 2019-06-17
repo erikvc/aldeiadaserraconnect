@@ -100,7 +100,7 @@ function pegaCategorias(){
 			}
 		},
 		error: function(dados){
-			alert(dados);
+			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -136,7 +136,7 @@ function pegaSubCategorias(){
 			}
 		},
 		error: function(dados){
-			alert(dados);
+			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -191,7 +191,7 @@ function pegaEmpresas(){
 			}
 		},
 		error: function(dados){
-			alert(dados);
+			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -240,7 +240,7 @@ function pegaFavoritos(){
 			}
 		},
 		error: function(dados){
-			alert(dados);
+			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -299,7 +299,7 @@ function pegaEmpresa(){
 			
 		},
 		error: function(dados){
-			alert('error');
+			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -338,7 +338,7 @@ function favorito(id){
 			pegaEmpresas();
 		},
 		error: function(dados){
-			alert('error');
+			alert("You need to be connected to the internet!");
 		}
 	})
 	
@@ -360,7 +360,7 @@ function pegaAvaliacao(){
 			$("#nomeEmpresa1, #nomeEmpresa2").html(dados[0].nome);
 		},
 		error: function(dados){
-			alert('error');
+			alert("You need to be connected to the internet!");
 		}
 	})
 	
@@ -431,7 +431,7 @@ $("#avaliacaoEnviaBTO").click(function(e){
 			
 		},
 		error: function(dados){
-			alert('error');
+			alert("You need to be connected to the internet!");
 		}
 	})
 	
@@ -490,7 +490,7 @@ function pegaOfertas(){
 			}
 		},
 		error: function(dados){
-			alert('error');
+			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -509,7 +509,7 @@ function pegaCupons(){
 			}
 		},
 		error: function(dados){
-			alert('error');
+			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -529,7 +529,7 @@ function pegaCardapio(id){
 			}
 		},
 		error: function(dados){
-			alert('error');
+			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -549,7 +549,7 @@ function pegaCardapioEmpresas(){
 			}
 		},
 		error: function(dados){
-			alert('error');
+			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -575,7 +575,7 @@ function pegaAgenda(){
 			}
 		},
 		error: function(dados){
-			alert('error');
+			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -596,7 +596,7 @@ function pegaNoticias(){
 			}
 		},
 		error: function(dados){
-			alert('error');
+			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -627,7 +627,7 @@ $("#search").keyup(function(){
 			}
 		},
 		error: function(dados){
-			alert('error');
+			alert("You need to be connected to the internet!");
 		}
 	})
 });
@@ -709,7 +709,7 @@ function pegaBannersHome(){
             
         },
         error: function(dados){
-            alert(dados);
+            alert("You need to be connected to the internet!");
         }
     })
 }
@@ -740,7 +740,7 @@ function pegaBannersEmpresa(empresa_id){
             
         },
         error: function(dados){
-            alert(dados);
+            alert("You need to be connected to the internet!");
         }
     })
 }
@@ -771,7 +771,7 @@ function pegaBannersSubcategoria(categoria_id){
             
         },
         error: function(dados){
-            alert(dados);
+            alert("You need to be connected to the internet!");
         }
     })
 }
