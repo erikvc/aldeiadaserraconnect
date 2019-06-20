@@ -88,6 +88,9 @@ function pegaCategorias(){
 		type: "post",
 		crossDomain: true,
 		dataType: "json",
+		before: function(){
+			$("#opto-loading-overlay").show('slow');
+		},
 		success: function(dados){
 			
 			if(dados.length == 0){
