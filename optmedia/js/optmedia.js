@@ -88,9 +88,6 @@ function pegaCategorias(){
 		type: "post",
 		crossDomain: true,
 		dataType: "json",
-		before: function(){
-			$("#opto-loading-overlay").show('slow');
-		},
 		success: function(dados){
 			
 			if(dados.length == 0){
@@ -101,9 +98,6 @@ function pegaCategorias(){
 					$("#recebeCategorias").append('<a href="#" onClick="return goToSubcategoria('+dados[i].id+');"><div class="boxBTO"><div class="capsulaTitle"><div class="titleBTO">'+dados[i].title+'</div></div><div class="bgBTO"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/categorias/'+dados[i].image+'" alt=""/></div></div></a>');
 				}
 			}
-		},
-		error: function(dados){
-			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -137,9 +131,6 @@ function pegaSubCategorias(){
 					$("#recebeSubCategorias").append('<a href="#" onClick="return goToEmpresas('+dados[i].id+');"><div class="boxBTO"><div class="capsulaTitle"><div class="titleBTO">'+dados[i].title+'</div></div><div class="bgBTO"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/subcategorias/'+dados[i].image+'" alt=""/></div></div></a>');
 				}
 			}
-		},
-		error: function(dados){
-			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -192,9 +183,6 @@ function pegaEmpresas(){
 					$("#recebeEmpresas").append('<div class="boxEmpresas">&nbsp;<div class="empresasHeart '+active+'"><a href="#" onClick="return favorito('+dados[i].id+');"><i class="fas fa-heart"></i></a></div><div class="empresasLogo"><a href="#" onClick="return goToEmpresa('+dados[i].statusPagamento+', '+dados[i].id+');"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/empresas/'+dados[i].logo+'" width="84" height="84" alt=""/></a></div><div class="empresasTitle">'+dados[i].nome+'</div><div><div class="empresasBottom"><div><a href="#" onClick="return goToEmpresa('+dados[i].statusPagamento+', '+dados[i].id+');"><div class="empresasLeft"><div class="empresasLeftContent">CONTATO</div></div></a><div class="empresasRight"><div class="empresasRightStar"><ul>'+estrelas+'</ul></div><div class="empresasRightContent">'+dados[i].totalAvaliacao+' '+plural+'</div></div></div</div<div>&nbsp;</div></div></div>');
 				}
 			}
-		},
-		error: function(dados){
-			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -241,9 +229,6 @@ function pegaFavoritos(){
 				
 				$("#recebeFavoritos").append('<div class="boxEmpresas">&nbsp;<div class="empresasHeart '+active+'"><a href="#" onClick="return favorito('+dados[i].id+');"><i class="fas fa-heart"></i></a></div><div class="empresasLogo"><a href="#" onClick="return goToEmpresa('+dados[i].statusPagamento+', '+dados[i].id+');"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/empresas/'+dados[i].logo+'" width="84" height="84" alt=""/></a></div><div class="empresasTitle">'+dados[i].nome+'</div><div><div class="empresasBottom"><div><a href="#" onClick="return goToEmpresa('+dados[i].statusPagamento+', '+dados[i].id+');"><div class="empresasLeft"><div class="empresasLeftContent">CONTATO</div></div></a><div class="empresasRight"><div class="empresasRightStar"><ul>'+estrelas+'</ul></div><div class="empresasRightContent">'+dados[i].totalAvaliacao+' '+plural+'</div></div></div</div<div>&nbsp;</div></div></div>');
 			}
-		},
-		error: function(dados){
-			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -300,9 +285,6 @@ function pegaEmpresa(){
 			$("#recebeTotalAvaliacao").html(dados[0].totalAvaliacao+'&nbsp;'+plural);
 			
 			
-		},
-		error: function(dados){
-			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -339,9 +321,6 @@ function favorito(id){
 		data: 'empresa_id='+id+'&usuario_email='+usuarioEmail,
 		success: function(dados){
 			pegaEmpresas();
-		},
-		error: function(dados){
-			alert("You need to be connected to the internet!");
 		}
 	})
 	
@@ -361,9 +340,6 @@ function pegaAvaliacao(){
         dataType: 'json',
 		success: function(dados){
 			$("#nomeEmpresa1, #nomeEmpresa2").html(dados[0].nome);
-		},
-		error: function(dados){
-			alert("You need to be connected to the internet!");
 		}
 	})
 	
@@ -432,9 +408,6 @@ $("#avaliacaoEnviaBTO").click(function(e){
 				window.history.back();
 			}
 			
-		},
-		error: function(dados){
-			alert("You need to be connected to the internet!");
 		}
 	})
 	
@@ -491,9 +464,6 @@ function pegaOfertas(){
 			for(var i=0;dados.length>i; i++){
 			   $("#recebeOfertas").append('<div class="ofertas-item"><div><p>'+dados[i].texto+'</p></div><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/ofertas/'+dados[i].imagem+'" alt=""/></div>');
 			}
-		},
-		error: function(dados){
-			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -510,9 +480,6 @@ function pegaCupons(){
 			for(var i=0;dados.length>i; i++){
 			   $("#recebeCupons").append('<div class="ofertas-item"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/cupons/'+dados[i].imagem+'" alt=""/></div>');
 			}
-		},
-		error: function(dados){
-			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -530,9 +497,6 @@ function pegaCardapio(id){
 			for(var i=0;dados.length>i; i++){
 			   $("#recebeCardapio").append('<div class="ofertas-item"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/cardapio/'+dados[i].imagem+'" alt=""/></div>');
 			}
-		},
-		error: function(dados){
-			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -550,9 +514,6 @@ function pegaCardapioEmpresas(){
 			for(var i=0;dados.length>i; i++){
 			   $("#recebeEmpresasCardapio").append('<a href="#" onClick="return abrirCardapio('+dados[i].id+');"><div class="opto-cardapio-box"><div class="opto-cardapio-logo"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/cardapio/'+dados[i].logo+'" width="84" height="84" alt=""/></div><div class="opto-cardapio-nomeEmpresa">'+dados[i].nome+'</div></div></a>');
 			}
-		},
-		error: function(dados){
-			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -576,9 +537,6 @@ function pegaAgenda(){
 			for(var i=0;dados.length>i; i++){
                 $("#recebeAgenda").append('<div class="ofertas-item"><div><p>'+dados[i].texto+'</p></div><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/agenda/'+dados[i].imagem+'" alt=""/></div>');
 			}
-		},
-		error: function(dados){
-			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -597,9 +555,6 @@ function pegaNoticias(){
 			for(var i=0;dados.length>i; i++){
 			   $("#recebeNoticias").append('<div class="ofertas-item"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/noticias/'+dados[i].imagem+'" alt=""/><p class="noticias-title">'+dados[i].titulo+'</p><p class="noticias-data">'+dados[i].dataInserido+'</p><p class="noticias-texto">'+dados[i].texto+'</p></div>');
 			}
-		},
-		error: function(dados){
-			alert("You need to be connected to the internet!");
 		}
 	})
 }
@@ -628,9 +583,6 @@ $("#search").keyup(function(){
 			for(var i=0;dados.length>i; i++){
 			   $("#recebeSearch").append('<li><a href="#" onClick="return goToEmpresa('+dados[i].statusPagamento+', '+dados[i].id+');">'+dados[i].nome+'</a><div style="font-size: 12px;">categoria: '+dados[i].categoria+'</div></li>');
 			}
-		},
-		error: function(dados){
-			alert("You need to be connected to the internet!");
 		}
 	})
 });
@@ -710,9 +662,6 @@ function pegaBannersHome(){
                 $("#recebeBanners").append('<div class="carousel-item '+setActive+'"><img class="d-block w-100" src="http://aldeiadaserraconnect.com.br/app/slide/img/bannersHome/'+dados[i].imagem+'" alt="Second slide"></div>');
             }
             
-        },
-        error: function(dados){
-            alert("You need to be connected to the internet!");
         }
     })
 }
@@ -741,9 +690,6 @@ function pegaBannersEmpresa(empresa_id){
                 $("#recebeBannersEmpresa").append('<div class="carousel-item '+setActive+'"><img class="d-block w-100" src="http://aldeiadaserraconnect.com.br/app/slide/img/bannersEmpresas/'+dados[i].imagem+'" alt=""></div>');
             }
             
-        },
-        error: function(dados){
-            alert("You need to be connected to the internet!");
         }
     })
 }
@@ -772,9 +718,6 @@ function pegaBannersSubcategoria(categoria_id){
                 $("#recebeBannersSubcategoria").append('<div class="carousel-item '+setActive+'"><img class="d-block w-100" src="http://aldeiadaserraconnect.com.br/app/slide/img/bannersCategorias/'+dados[i].imagem+'" alt="Second slide"></div>');
             }
             
-        },
-        error: function(dados){
-            alert("You need to be connected to the internet!");
         }
     })
 }
