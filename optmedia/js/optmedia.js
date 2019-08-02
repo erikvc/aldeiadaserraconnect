@@ -1,28 +1,3 @@
-//ONESIGNAL********************************
-document.addEventListener('deviceready', function () {
-  // Enable to debug issues.
-  // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
-  
-  var notificationOpenedCallback = function(jsonData) {
-    console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
-  };
-
-  window.plugins.OneSignal
-    .startInit("c8d6e4a1-1d8b-488b-8246-8601445ced61")
-    .handleNotificationOpened(notificationOpenedCallback)
-    .endInit();
-}, false);
-
-
-function verificaVazio(divID){
-	$("#"+divID).html('<p style="font-size: 12px; text-align: center;">No momento não há empresas cadastradas para esta categoria. Aguarde!</p>');
-}
-
-
-//ABRE E FECHA MENUUUUUU**********
-$(".menu-bto").click(function(){
-	$(".menu-lateral").toggle("fast");
-});
 
 
 //==============LOGIN================
