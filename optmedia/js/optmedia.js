@@ -1,4 +1,7 @@
-
+//ABRE E FECHA MENUUUUUU**********
+$(".menu-bto").click(function(){
+	$(".menu-lateral").toggle("fast");
+});
 
 //==============LOGIN================
 $("#submit-login").click(function(e){
