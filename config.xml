@@ -38,6 +38,11 @@ Baixe agora e descubra tudo o que o APP Aldeia da Serra Connect pode fazer para 
     <allow-intent href="mailto:*" />
     <platform name="android">
         <allow-intent href="market:*" />
+		<allow-intent href="http://*/*" />
+		<allow-intent href="https://*/*" />
+		<allow-intent href="tel:*" />
+		<allow-intent href="sms:*" />
+		<allow-intent href="mailto:*" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
