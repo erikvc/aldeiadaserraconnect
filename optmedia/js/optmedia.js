@@ -66,6 +66,10 @@ function pegaCategorias(){
 		type: "post",
 		crossDomain: true,
 		dataType: "json",
+		error: function (request, error) {
+			console.log(arguments);
+			alert(" Can't do because: " + error);
+		},
 		success: function(dados){
 			
 			if(dados.length == 0){
@@ -76,9 +80,6 @@ function pegaCategorias(){
 					$("#recebeCategorias").append('<a href="#" onClick="return goToSubcategoria('+dados[i].id+');"><div class="boxBTO"><div class="capsulaTitle"><div class="titleBTO">'+dados[i].title+'</div></div><div class="bgBTO"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/categorias/'+dados[i].image+'" alt=""/></div></div></a>');
 				}
 			}
-		},
-		error: function(){
-			alert('errr');
 		}
 	})
 }
