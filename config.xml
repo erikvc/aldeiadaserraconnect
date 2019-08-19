@@ -37,6 +37,9 @@ Baixe agora e descubra tudo o que o APP Aldeia da Serra Connect pode fazer para 
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <platform name="android">
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.INTERNET"/>
+        </config-file>
         <allow-intent href="market:*" />
 		<allow-intent href="http://*/*" />
 		<allow-intent href="https://*/*" />
