@@ -1,4 +1,4 @@
-<!--<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <widget id="br.com.aldeiadaserraconnect.app" version="1.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Aldeia da Serra Connect</name>
     <description>
@@ -23,7 +23,7 @@ Baixe agora e descubra tudo o que o APP Aldeia da Serra Connect pode fazer para 
     
         <plugin name="onesignal-cordova-plugin" spec="^2.1.1" source="npm" />
 	
-	<!-- Requires cli-6.4.0 but we recommend using the latest version. --
+	<!-- Requires cli-6.4.0 but we recommend using the latest version. -->
 	<preference name="phonegap-version" value="cli-7.0.1" />
 
 	<preference name="android-build-tool" value="gradle" />
@@ -57,7 +57,7 @@ Baixe agora e descubra tudo o que o APP Aldeia da Serra Connect pode fazer para 
 		<icon density="xhdpi" src="res/icon/android/xhdpi.png"/>
 		<icon density="xxhdpi" src="res/icon/android/xxhdpi.png"/>
 		<icon density="xxxhdpi" src="res/icon/android/xxxhdpi.png"/>
-		 <!--  Portrait  --
+		 <!--  Portrait  -->
 		<splash density="port-ldpi" src="res/screen/android/splash-port-ldpi.png"/>
 		<splash density="port-mdpi" src="res/screen/android/splash-port-mdpi.png"/>
 		<splash density="port-hdpi" src="res/screen/android/splash-port-hdpi.png"/>
@@ -74,73 +74,6 @@ Baixe agora e descubra tudo o que o APP Aldeia da Serra Connect pode fazer para 
 		        <splash density="land-xxhdpi" src="res/screen/android/splash-land-xxhdpi.png"/>
 		        <splash density="land-xxxhdpi" src="res/screen/android/splash-land-xxxhdpi.png"/>
 		        
-		--
+		-->
 	</platform>
-</widget>-->
-<?xml version='1.0' encoding='utf-8'?>
-<widget id="br.com.aldeiadaserraconnect.app" version="1.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Aldeia da Serra Connect</name>
-    <description>
-        Aldeia da Serra Connect
-Chegou o primeiro aplicativo de Aldeia da Serra.
-Um guia completo de Aldeia da Serra na palma da sua mão. O app Aldeia da Serra Connect foi 
-desenvolvido para integrar, moradores, comércio e prestadores de serviços; além de você ficar 
-atualizado sobre os eventos que acontecem em Aldeia da Serra e ainda Promoções e Cupons de 
-Desconto.
-
-Chega de procurar nos guias antigos em papel, como o app é dividido em categorias, a poucos 
-cliques você encontra e já liga para a empresa que precisa.
-
-Baixe agora e descubra tudo o que o APP Aldeia da Serra Connect pode fazer para facilitar a sua vida.
-    </description>
-    <author email="erik@optmedia.net" href="http://www.optocreative.com">
-        Optmedia Brazil Team
-    </author>
-    <content src="index.html" />
-    <plugin name="cordova-plugin-whitelist" spec="1" />
-    <plugin name="cordova-plugin-inappbrowser" spec="1.6.1" />
-    
-        <!--<plugin name="onesignal-cordova-plugin" spec="^2.1.1" source="npm" />-->
-
-	<!-- Requires cli-6.4.0 but we recommend using the latest version. -->
-	<preference name="phonegap-version" value="cli-7.0.1" />
-
-	<preference name="android-build-tool" value="gradle" />
-	<preference name="android-minSdkVersion" value="15" />
-    
-
-    <access origin="*" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
-    <allow-intent href="mailto:*" />
-    <!--<allow-intent href="geo:*" />-->
-    <allow-navigation href="*://*youtube.com" />
-	<allow-navigation href="*://*vimeo.com" />
-	<allow-navigation href="*://*facebook.com" />
-
-    
-    <platform name="android">
-	<preference name="SplashMaintainAspectRatio" value="true"/>
-	<preference name="SplashShowOnlyFirstTime" value="true"/>
-	<icon density="ldpi" src="res/icon/android/ldpi.png"/>
-	<icon density="mdpi" src="res/icon/android/mdpi.png"/>
-	<icon density="hdpi" src="res/icon/android/hdpi.png"/>
-	<icon density="xhdpi" src="res/icon/android/xhdpi.png"/>
-	<icon density="xxhdpi" src="res/icon/android/xxhdpi.png"/>
-	<icon density="xxxhdpi" src="res/icon/android/xxxhdpi.png"/>
-	 <!--  Portrait  -->
-	<splash density="port-ldpi" src="res/screen/android/splash-port-ldpi.png"/>
-	<splash density="port-mdpi" src="res/screen/android/splash-port-mdpi.png"/>
-	<splash density="port-hdpi" src="res/screen/android/splash-port-hdpi.png"/>
-	<splash density="port-xhdpi" src="res/screen/android/splash-port-xhdpi.png"/>
-	<splash density="port-xxhdpi" src="res/screen/android/splash-port-xxhdpi.png"/>
-	<splash density="port-xxxhdpi" src="res/screen/android/splash-port-xxxhdpi.png"/>
-
-        <feature name="InAppBrowser">
-            <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
-        </feature>
-    </platform>
-	
 </widget>
