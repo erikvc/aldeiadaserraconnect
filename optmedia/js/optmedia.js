@@ -8,7 +8,7 @@ $("#submit-login").click(function(e){
 	e.preventDefault();
 	var formData = $("#login-form").serialize();
 	$.ajax({
-		url: 'http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/login.php',
+		url: 'https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/login.php',
 		type: 'post',
 		crossDomain: true,
 		data: formData,
@@ -62,7 +62,7 @@ function logout(){
 /*====================PEGA CATEGORIAS=================*/
 function pegaCategorias(){
 	$.ajax({
-		url: "http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaCategorias.php",
+		url: "https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaCategorias.php",
 		type: "post",
 		crossDomain: true,
 		dataType: "json",
@@ -77,7 +77,7 @@ function pegaCategorias(){
 			}else{
 				$("#recebeCategorias").empty();
 				for(var i=0;dados.length>i; i++){
-					$("#recebeCategorias").append('<a href="#" onClick="return goToSubcategoria('+dados[i].id+');"><div class="boxBTO"><div class="capsulaTitle"><div class="titleBTO">'+dados[i].title+'</div></div><div class="bgBTO"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/categorias/'+dados[i].image+'" alt=""/></div></div></a>');
+					$("#recebeCategorias").append('<a href="#" onClick="return goToSubcategoria('+dados[i].id+');"><div class="boxBTO"><div class="capsulaTitle"><div class="titleBTO">'+dados[i].title+'</div></div><div class="bgBTO"><img src="https://aldeiadaserraconnect.com.br/app/optmedia/images/categorias/'+dados[i].image+'" alt=""/></div></div></a>');
 				}
 			}
 		}
@@ -98,7 +98,7 @@ function goToEmpresas(id){
 function pegaSubCategorias(){
 	var categoriaID = localStorage.getItem('categoriaID');
 	$.ajax({
-		url: "http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaSubCategorias.php",
+		url: "https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaSubCategorias.php",
 		type: "post",
 		crossDomain: true,
 		dataType: "json",
@@ -110,7 +110,7 @@ function pegaSubCategorias(){
 			}else{
 				$("#recebeSubCategorias").empty();
 				for(var i=0;dados.length>i; i++){
-					$("#recebeSubCategorias").append('<a href="#" onClick="return goToEmpresas('+dados[i].id+');"><div class="boxBTO"><div class="capsulaTitle"><div class="titleBTO">'+dados[i].title+'</div></div><div class="bgBTO"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/subcategorias/'+dados[i].image+'" alt=""/></div></div></a>');
+					$("#recebeSubCategorias").append('<a href="#" onClick="return goToEmpresas('+dados[i].id+');"><div class="boxBTO"><div class="capsulaTitle"><div class="titleBTO">'+dados[i].title+'</div></div><div class="bgBTO"><img src="https://aldeiadaserraconnect.com.br/app/optmedia/images/subcategorias/'+dados[i].image+'" alt=""/></div></div></a>');
 				}
 			}
 		}
@@ -123,7 +123,7 @@ function pegaEmpresas(){
 	var subcategoriaID = localStorage.getItem('subcategoriaID');
 	var usuarioEmail = localStorage.getItem('login');
 	$.ajax({
-		url: "http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaEmpresas.php",
+		url: "https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaEmpresas.php",
 		type: "get",
 		crossDomain: true,
 		dataType: "json",
@@ -162,7 +162,7 @@ function pegaEmpresas(){
 					}
 
 
-					$("#recebeEmpresas").append('<div class="boxEmpresas">&nbsp;<div class="empresasHeart '+active+'"><a href="#" onClick="return favorito('+dados[i].id+');"><i class="fas fa-heart"></i></a></div><div class="empresasLogo"><a href="#" onClick="return goToEmpresa('+dados[i].statusPagamento+', '+dados[i].id+');"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/empresas/'+dados[i].logo+'" width="84" height="84" alt=""/></a></div><div class="empresasTitle">'+dados[i].nome+'</div><div><div class="empresasBottom"><div><a href="#" onClick="return goToEmpresa('+dados[i].statusPagamento+', '+dados[i].id+');"><div class="empresasLeft"><div class="empresasLeftContent">CONTATO</div></div></a><div class="empresasRight"><div class="empresasRightStar"><ul>'+estrelas+'</ul></div><div class="empresasRightContent">'+dados[i].totalAvaliacao+' '+plural+'</div></div></div</div<div>&nbsp;</div></div></div>');
+					$("#recebeEmpresas").append('<div class="boxEmpresas">&nbsp;<div class="empresasHeart '+active+'"><a href="#" onClick="return favorito('+dados[i].id+');"><i class="fas fa-heart"></i></a></div><div class="empresasLogo"><a href="#" onClick="return goToEmpresa('+dados[i].statusPagamento+', '+dados[i].id+');"><img src="https://aldeiadaserraconnect.com.br/app/optmedia/images/empresas/'+dados[i].logo+'" width="84" height="84" alt=""/></a></div><div class="empresasTitle">'+dados[i].nome+'</div><div><div class="empresasBottom"><div><a href="#" onClick="return goToEmpresa('+dados[i].statusPagamento+', '+dados[i].id+');"><div class="empresasLeft"><div class="empresasLeftContent">CONTATO</div></div></a><div class="empresasRight"><div class="empresasRightStar"><ul>'+estrelas+'</ul></div><div class="empresasRightContent">'+dados[i].totalAvaliacao+' '+plural+'</div></div></div</div<div>&nbsp;</div></div></div>');
 				}
 			}
 		}
@@ -174,7 +174,7 @@ function pegaFavoritos(){
 	var usuarioEmail = localStorage.getItem('login');
 	//alert(usuarioEmail);
 	$.ajax({
-		url: "http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaFavoritos.php",
+		url: "https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaFavoritos.php",
 		type: "get",
 		crossDomain: true,
 		dataType: "json",
@@ -209,7 +209,7 @@ function pegaFavoritos(){
 				}
 				
 				
-				$("#recebeFavoritos").append('<div class="boxEmpresas">&nbsp;<div class="empresasHeart '+active+'"><a href="#" onClick="return favorito('+dados[i].id+');"><i class="fas fa-heart"></i></a></div><div class="empresasLogo"><a href="#" onClick="return goToEmpresa('+dados[i].statusPagamento+', '+dados[i].id+');"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/empresas/'+dados[i].logo+'" width="84" height="84" alt=""/></a></div><div class="empresasTitle">'+dados[i].nome+'</div><div><div class="empresasBottom"><div><a href="#" onClick="return goToEmpresa('+dados[i].statusPagamento+', '+dados[i].id+');"><div class="empresasLeft"><div class="empresasLeftContent">CONTATO</div></div></a><div class="empresasRight"><div class="empresasRightStar"><ul>'+estrelas+'</ul></div><div class="empresasRightContent">'+dados[i].totalAvaliacao+' '+plural+'</div></div></div</div<div>&nbsp;</div></div></div>');
+				$("#recebeFavoritos").append('<div class="boxEmpresas">&nbsp;<div class="empresasHeart '+active+'"><a href="#" onClick="return favorito('+dados[i].id+');"><i class="fas fa-heart"></i></a></div><div class="empresasLogo"><a href="#" onClick="return goToEmpresa('+dados[i].statusPagamento+', '+dados[i].id+');"><img src="https://aldeiadaserraconnect.com.br/app/optmedia/images/empresas/'+dados[i].logo+'" width="84" height="84" alt=""/></a></div><div class="empresasTitle">'+dados[i].nome+'</div><div><div class="empresasBottom"><div><a href="#" onClick="return goToEmpresa('+dados[i].statusPagamento+', '+dados[i].id+');"><div class="empresasLeft"><div class="empresasLeftContent">CONTATO</div></div></a><div class="empresasRight"><div class="empresasRightStar"><ul>'+estrelas+'</ul></div><div class="empresasRightContent">'+dados[i].totalAvaliacao+' '+plural+'</div></div></div</div<div>&nbsp;</div></div></div>');
 			}
 		}
 	})
@@ -221,7 +221,7 @@ function pegaFavoritos(){
 function pegaEmpresa(){
 	var empresaID = localStorage.getItem('empresaID');
 	$.ajax({
-		url: "http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaEmpresa.php",
+		url: "https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaEmpresa.php",
 		type: "get",
 		crossDomain: true,
 		dataType: "json",
@@ -230,7 +230,7 @@ function pegaEmpresa(){
 			
 			pegaComentarios(empresaID);
 			
-			$(".empresaHeaderLogo").html('<img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/empresas/'+dados[0].logo+'" width="84" height="84" alt=""/>');
+			$(".empresaHeaderLogo").html('<img src="https://aldeiadaserraconnect.com.br/app/optmedia/images/empresas/'+dados[0].logo+'" width="84" height="84" alt=""/>');
 			$(".empresaDescription").html('<p>'+dados[0].descricao+'</p>');
 			$("#empresaEndereco").html('<div class="empresaTableCell1">'+dados[0].endereco+'</div>');
 			$(".empresaHeaderTitle").html('<p>'+dados[0].nome+'</p>');
@@ -297,7 +297,7 @@ function goToEmpresa(statusPagamento, id){
 function favorito(id){
 	var usuarioEmail = localStorage.getItem('login');
 	$.ajax({
-		url: "http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/favorito.php",
+		url: "https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/favorito.php",
 		type: "get",
 		crossDomain: true,
 		data: 'empresa_id='+id+'&usuario_email='+usuarioEmail,
@@ -315,7 +315,7 @@ function favorito(id){
 function pegaAvaliacao(){
 	var avaliacaoID = localStorage.getItem('avaliacaoID');
 	$.ajax({
-		url: "http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaEmpresa.php",
+		url: "https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaEmpresa.php",
 		type: "get",
 		crossDomain: true,
 		data: 'empresa_id='+avaliacaoID,
@@ -378,7 +378,7 @@ $("#avaliacaoEnviaBTO").click(function(e){
 	var empresaID = localStorage.getItem('avaliacaoID');
 	var usuarioEmail = localStorage.getItem('login');
 	$.ajax({
-		url: "http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/enviaAvaliacao.php",
+		url: "https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/enviaAvaliacao.php",
 		type: "get",
 		crossDomain: true,
 		data: 'empresa_id='+empresaID+'&usuarioEmail='+usuarioEmail+'&nota='+nota+'&comentario='+comentario,
@@ -402,7 +402,7 @@ $("#avaliacaoEnviaBTO").click(function(e){
 function pegaComentarios(empresa_id){
 	//var empresaID = localStorage.getItem('avaliacaoID');
 	$.ajax({
-		url: "http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaComentarios.php",
+		url: "https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaComentarios.php",
 		type: "get",
 		crossDomain: true,
 		data: 'empresa_id='+empresa_id,
@@ -437,14 +437,14 @@ function pegaComentarios(empresa_id){
 /*===========================PEGA OFERTAS========================*/
 function pegaOfertas(){
 	$.ajax({
-		url: "http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaOfertas.php",
+		url: "https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaOfertas.php",
 		type: "get",
 		crossDomain: true,
 		dataType: 'json',
 		success: function(dados){
 			$("#recebeOfertas").empty();
 			for(var i=0;dados.length>i; i++){
-			   $("#recebeOfertas").append('<div class="ofertas-item"><div><p>'+dados[i].texto+'</p></div><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/ofertas/'+dados[i].imagem+'" alt=""/></div>');
+			   $("#recebeOfertas").append('<div class="ofertas-item"><div><p>'+dados[i].texto+'</p></div><img src="https://aldeiadaserraconnect.com.br/app/optmedia/images/ofertas/'+dados[i].imagem+'" alt=""/></div>');
 			}
 		}
 	})
@@ -453,14 +453,14 @@ function pegaOfertas(){
 /*===========================PEGA CUPOM========================*/
 function pegaCupons(){
 	$.ajax({
-		url: "http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaCupons.php",
+		url: "https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaCupons.php",
 		type: "get",
 		crossDomain: true,
 		dataType: 'json',
 		success: function(dados){
 			$("#recebeCupons").empty();
 			for(var i=0;dados.length>i; i++){
-			   $("#recebeCupons").append('<div class="ofertas-item"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/cupons/'+dados[i].imagem+'" alt=""/></div>');
+			   $("#recebeCupons").append('<div class="ofertas-item"><img src="https://aldeiadaserraconnect.com.br/app/optmedia/images/cupons/'+dados[i].imagem+'" alt=""/></div>');
 			}
 		}
 	})
@@ -469,7 +469,7 @@ function pegaCupons(){
 /*===========================PEGA CARDAPIO========================*/
 function pegaCardapio(id){
 	$.ajax({
-		url: "http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaCardapio.php",
+		url: "https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaCardapio.php",
 		type: "get",
 		crossDomain: true,
 		dataType: 'json',
@@ -477,7 +477,7 @@ function pegaCardapio(id){
 		success: function(dados){
 			$("#recebeCardapio").empty();
 			for(var i=0;dados.length>i; i++){
-			   $("#recebeCardapio").append('<div class="ofertas-item"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/cardapio/'+dados[i].imagem+'" alt=""/></div>');
+			   $("#recebeCardapio").append('<div class="ofertas-item"><img src="https://aldeiadaserraconnect.com.br/app/optmedia/images/cardapio/'+dados[i].imagem+'" alt=""/></div>');
 			}
 		}
 	})
@@ -487,14 +487,14 @@ function pegaCardapio(id){
 /*===========================PEGA CARDAPIO EMPRESAS========================*/
 function pegaCardapioEmpresas(){
 	$.ajax({
-		url: "http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaCardapioEmpresas.php",
+		url: "https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaCardapioEmpresas.php",
 		type: "get",
 		crossDomain: true,
 		dataType: 'json',
 		success: function(dados){
 			$("#recebeEmpresasCardapio").empty();
 			for(var i=0;dados.length>i; i++){
-			   $("#recebeEmpresasCardapio").append('<a href="#" onClick="return abrirCardapio('+dados[i].id+');"><div class="opto-cardapio-box"><div class="opto-cardapio-logo"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/cardapio/'+dados[i].logo+'" width="84" height="84" alt=""/></div><div class="opto-cardapio-nomeEmpresa">'+dados[i].nome+'</div></div></a>');
+			   $("#recebeEmpresasCardapio").append('<a href="#" onClick="return abrirCardapio('+dados[i].id+');"><div class="opto-cardapio-box"><div class="opto-cardapio-logo"><img src="https://aldeiadaserraconnect.com.br/app/optmedia/images/cardapio/'+dados[i].logo+'" width="84" height="84" alt=""/></div><div class="opto-cardapio-nomeEmpresa">'+dados[i].nome+'</div></div></a>');
 			}
 		}
 	})
@@ -510,14 +510,14 @@ function abrirCardapio(id){
 /*===========================PEGA Agenda========================*/
 function pegaAgenda(){
 	$.ajax({
-		url: "http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaAgenda.php",
+		url: "https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaAgenda.php",
 		type: "get",
 		crossDomain: true,
 		dataType: 'json',
 		success: function(dados){
 			$("#recebeAgenda").empty();
 			for(var i=0;dados.length>i; i++){
-                $("#recebeAgenda").append('<div class="ofertas-item"><div><p>'+dados[i].texto+'</p></div><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/agenda/'+dados[i].imagem+'" alt=""/></div>');
+                $("#recebeAgenda").append('<div class="ofertas-item"><div><p>'+dados[i].texto+'</p></div><img src="https://aldeiadaserraconnect.com.br/app/optmedia/images/agenda/'+dados[i].imagem+'" alt=""/></div>');
 			}
 		}
 	})
@@ -528,14 +528,14 @@ function pegaAgenda(){
 /*===========================PEGA Noticias========================*/
 function pegaNoticias(){
 	$.ajax({
-		url: "http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaNoticias.php",
+		url: "https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaNoticias.php",
 		type: "get",
 		crossDomain: true,
 		dataType: 'json',
 		success: function(dados){
 			$("#recebeNoticias").empty();
 			for(var i=0;dados.length>i; i++){
-			   $("#recebeNoticias").append('<div class="ofertas-item"><img src="http://aldeiadaserraconnect.com.br/app/optmedia/images/noticias/'+dados[i].imagem+'" alt=""/><p class="noticias-title">'+dados[i].titulo+'</p><p class="noticias-data">'+dados[i].dataInserido+'</p><p class="noticias-texto">'+dados[i].texto+'</p></div>');
+			   $("#recebeNoticias").append('<div class="ofertas-item"><img src="https://aldeiadaserraconnect.com.br/app/optmedia/images/noticias/'+dados[i].imagem+'" alt=""/><p class="noticias-title">'+dados[i].titulo+'</p><p class="noticias-data">'+dados[i].dataInserido+'</p><p class="noticias-texto">'+dados[i].texto+'</p></div>');
 			}
 		}
 	})
@@ -555,7 +555,7 @@ $("#search").keyup(function(){
 	$("#conteudo-search").show('fast');
 	var search = $("#search").val();
 	$.ajax({
-		url: "http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/search.php",
+		url: "https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/search.php",
 		type: "get",
 		crossDomain: true,
 		dataType: 'json',
@@ -596,7 +596,7 @@ $("#formCadastrar").submit(function(e){
             apagaMsg();
         }else{
             $.ajax({
-               url: 'http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/cadastrar.php',
+               url: 'https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/cadastrar.php',
                 data: 'nome='+nome+'&sobrenome='+sobrenome+'&email='+email+'&password='+password,
                 type: 'post',
                 crossDomain: true,
@@ -625,7 +625,7 @@ $("#formCadastrar").submit(function(e){
 
 function pegaBannersHome(){
     $.ajax({
-        url: 'http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaBannerHome.php',
+        url: 'https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaBannerHome.php',
         type: 'post',
         crossDomain: true,
         dataType: 'json',
@@ -641,7 +641,7 @@ function pegaBannersHome(){
                 }
                 $("#recebeIndicador").append('<li data-target="#carouselExampleIndicators" data-slide-to="'+valorIndicador+'" class="'+setActive+'"></li>');
                 valorIndicador++;
-                $("#recebeBanners").append('<div class="carousel-item '+setActive+'"><img class="d-block w-100" src="http://aldeiadaserraconnect.com.br/app/slide/img/bannersHome/'+dados[i].imagem+'" alt="Second slide"></div>');
+                $("#recebeBanners").append('<div class="carousel-item '+setActive+'"><img class="d-block w-100" src="https://aldeiadaserraconnect.com.br/app/slide/img/bannersHome/'+dados[i].imagem+'" alt="Second slide"></div>');
             }
             
         }
@@ -652,7 +652,7 @@ function pegaBannersHome(){
 
 function pegaBannersEmpresa(empresa_id){
     $.ajax({
-        url: 'http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaBannerEmpresa.php',
+        url: 'https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaBannerEmpresa.php',
         type: 'get',
         data: 'empresa_id='+empresa_id,
         crossDomain: true,
@@ -669,7 +669,7 @@ function pegaBannersEmpresa(empresa_id){
                 }
                 $("#recebeIndicadorEmpresa").append('<li data-target="#carouselExampleIndicators" data-slide-to="'+valorIndicador+'" class="'+setActive+'"></li>');
                 valorIndicador++;
-                $("#recebeBannersEmpresa").append('<div class="carousel-item '+setActive+'"><img class="d-block w-100" src="http://aldeiadaserraconnect.com.br/app/slide/img/bannersEmpresas/'+dados[i].imagem+'" alt=""></div>');
+                $("#recebeBannersEmpresa").append('<div class="carousel-item '+setActive+'"><img class="d-block w-100" src="https://aldeiadaserraconnect.com.br/app/slide/img/bannersEmpresas/'+dados[i].imagem+'" alt=""></div>');
             }
             
         }
@@ -680,7 +680,7 @@ function pegaBannersEmpresa(empresa_id){
 
 function pegaBannersSubcategoria(categoria_id){
     $.ajax({
-        url: 'http://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaBannerSubcategoria.php',
+        url: 'https://aldeiadaserraconnect.com.br/app/aldeiaAppWebservice/pegaBannerSubcategoria.php',
         type: 'get',
         data: 'categoria_id='+categoria_id,
         crossDomain: true,
@@ -697,7 +697,7 @@ function pegaBannersSubcategoria(categoria_id){
                 }
                 $("#recebeIndicadorSubcategoria").append('<li data-target="#carouselExampleIndicators" data-slide-to="'+valorIndicador+'" class="'+setActive+'"></li>');
                 valorIndicador++;
-                $("#recebeBannersSubcategoria").append('<div class="carousel-item '+setActive+'"><img class="d-block w-100" src="http://aldeiadaserraconnect.com.br/app/slide/img/bannersCategorias/'+dados[i].imagem+'" alt="Second slide"></div>');
+                $("#recebeBannersSubcategoria").append('<div class="carousel-item '+setActive+'"><img class="d-block w-100" src="https://aldeiadaserraconnect.com.br/app/slide/img/bannersCategorias/'+dados[i].imagem+'" alt="Second slide"></div>');
             }
             
         }
